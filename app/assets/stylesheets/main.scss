@@ -1,0 +1,26 @@
+$purple: #7733ff;
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  height: 60px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.navbar .navbar-brand {
+  font-size: 24px;
+  color: $purple;
+}
+
+.navbar li > a {
+  font-size: 20px;
+}
+
+a {
+  color: $purple;
+}

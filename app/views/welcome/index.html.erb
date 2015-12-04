@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <% if !logged_in? %>
+    <h1>Welcome to QuizLite!</h1>
+  <% end %>
+  <% if logged_in? %>
+    <h1>Welcome to QuizLite, <%= current_user.name %>!</h1>
+  <% end %>
+  
+  <p>This is a simple flashcard application built for CIS 196 @ Penn. I hope you find this useful.</p>
+</div>

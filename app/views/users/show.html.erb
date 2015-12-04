@@ -1,0 +1,53 @@
+<% if notice and notice.include? 'success' %>
+  <p id="notice"><span class='glyphicon glyphicon-check'></span> <%= notice %></p>
+<% elsif notice %>
+  <p id="notice"><span class='glyphicon glyphicon-alert'></span> <%= notice %></p>
+<% end %>
+
+<h1><%= @user.name %>'s Quizzes</h1>
+
+<div class='container'>
+
+<br>
+<% if @user == current_user %>
+  <%= link_to 'New Deck', new_deck_path, :class => "btn btn-default btn-md" %>
+<% end %>
+
+<br>
+<br>
+
+<% if @user.decks.length == 0 %>
+  <p>You don't have any decks yet!</p>
+<% else %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-sm-2">Name</th>
+        <th class="col-sm-2">Test</th>
+        <th class="col-sm-2">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.decks.each do |deck| %>
+      <tr>
+        <td><%= link_to deck.name, deck %></td>
+        <td>Placeholder</td>
+        <% if @user == current_user %>
+          <td><span class='glyphicon glyphicon-edit'></span> <%= link_to 'Rename', edit_deck_path(deck) %> | <span class='glyphicon glyphicon-trash'></span> <%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+</div>
+
+<br>
+
+<p>
+<% if @user == current_user %>
+  <%= link_to 'Edit Account', edit_user_path(@user) %> |
+  <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+</p>
