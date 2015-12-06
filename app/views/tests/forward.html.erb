@@ -7,10 +7,17 @@
 <% if @deck.cards.length == 0 %>
   <p>No cards in this deck yet!</p>
 <% else %>
-  <% @deck.cards.shuffle.each do |card| %>
-    <%= card.question %>
-    <%= card.answer %>
-  <% end %>
+  <form action='/<%= @deck.id %>/forward' method='post'>
+    <% @deck.cards.shuffle.each do |card| %>
+      <%= card.question %>: <input type='text' name='<%= card.question %>'><br><br>
+    <% end %>
+    <input type='submit' value='Submit'>
+  </form>
 <% end %>
 
 </div>
+
+<br>
+<br>
+
+<span class='glyphicon glyphicon-chevron-left'></span> <%= link_to 'Back', :back %>

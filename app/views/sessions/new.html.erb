@@ -1,15 +1,26 @@
 <h1 id="log_in">Log In</h1>
 
+<div class='container'>
+
+<br>
+
 <%= form_tag(@user) do %>
   <div class="field">
-    <%= label_tag :name %>
+    <%= label_tag :name %><br>
     <%= text_field_tag :name %>
   </div>
   <div class="field">
-    <%= label_tag :password %>
+    <%= label_tag :password %><br>
     <%= password_field_tag :password %>
   </div>
-  <div class="action">
+  <div class="action"><br>
     <%= submit_tag 'Log in' %>
   </div>
 <% end %>
+
+<br>
+<br>
+
+</div>
+
+<span class='glyphicon glyphicon-chevron-left'></span> <%= link_to 'Back', :back %>

@@ -1,0 +1,42 @@
+<h1><%= @deck.name %> Results</h1>
+
+<div class='container'>
+
+<br>
+
+<% if @deck.cards.length == 0 %>
+  <p>You don't have any decks yet!</p>
+<% else %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-sm-2">Prompt</th>
+        <th class="col-sm-2">Answer</th>
+        <th class="col-sm-2">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @deck.cards.each do |card| %>
+      <tr>
+        <td><%= card.question %></td>
+        <td><%= card.answer %></td>
+        <% if @results[card.question] == true %>
+          <td><span class='glyphicon glyphicon-ok'></span> Correct </td>
+        <% else %>
+          <td><span class='glyphicon glyphicon-remove'></span> Incorrect </td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h3>Score: <%= @score %> / <%= @deck.cards.length %> </h3>
+<% end %>
+
+</div>
+
+<br>
+<br>
+
+<a href='/<%= @deck.id %>/forward'> Retest </a> |
+<%= link_to 'Back', current_user %>

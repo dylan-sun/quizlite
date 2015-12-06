@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # Quiz testing
   get '/:id/forward' => 'tests#forward'
   get '/:id/backward' => 'tests#backward'
+  post '/:id/forward' => 'tests#fvalidate'
+  post '/:id/backward' => 'tests#bvalidate'
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

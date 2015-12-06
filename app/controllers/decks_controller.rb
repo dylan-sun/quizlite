@@ -26,7 +26,6 @@ class DecksController < ApplicationController
   # POST /decks.json
   def create
     @deck = Deck.new(deck_params)
-
     respond_to do |format|
       if @deck.save
         current_user.decks << @deck
