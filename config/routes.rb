@@ -3,14 +3,18 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # Resources
-  resources :cards
-  resources :decks
-  resources :users
+  resources :cards, except: [:index, :show]
+  resources :decks, except: [:index]
+  resources :users, except: [:index]
 
   # Session management
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+
+  # Quiz testing
+  get '/:id/forward' => 'tests#forward'
+  get '/:id/backward' => 'tests#backward'
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

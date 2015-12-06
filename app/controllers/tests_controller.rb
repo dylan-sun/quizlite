@@ -2,13 +2,9 @@ class TestsController < ApplicationController
   before_action :set_deck, only: [:forward, :backward]
 
   def forward
-    @shuffled = @deck
-    @shuffled.cards.shuffle
   end
 
   def backward
-    @shuffled = @deck
-    @shuffled.cards.shuffle
   end
 
   private

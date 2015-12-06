@@ -31,7 +31,7 @@
       <% @user.decks.each do |deck| %>
       <tr>
         <td><%= link_to deck.name, deck %></td>
-        <td>Placeholder</td>
+        <td><span class='glyphicon glyphicon-forward'></span> <a href='/<%= deck.id %>/forward'>Forward</a> | <span class='glyphicon glyphicon-backward'></span> <a href='/<%= deck.id %>/backward'>Backward</a></td>
         <% if @user == current_user %>
           <td><span class='glyphicon glyphicon-edit'></span> <%= link_to 'Rename', edit_deck_path(deck) %> | <span class='glyphicon glyphicon-trash'></span> <%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>

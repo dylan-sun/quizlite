@@ -1,13 +1,13 @@
-<h1><%= @shuffled.name %></h1>
+<h1><%= @deck.name %></h1>
 
 <div class='container'>
 
 <br>
 
-<% if @shuffled.cards.length == 0 %>
+<% if @deck.cards.length == 0 %>
   <p>No cards in this deck yet!</p>
 <% else %>
-  <% @shuffled.cards.each do |card| %>
+  <% @deck.cards.shuffle.each do |card| %>
     <%= card.question %>
     <%= card.answer %>
   <% end %>
