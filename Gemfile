@@ -54,3 +54,5 @@ group :development do
   gem 'spring'
 end
 
+# Specifying Ruby version
+ruby '2.2.2'
