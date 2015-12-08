@@ -12,6 +12,7 @@
       <tr>
         <th class="col-sm-2">Prompt</th>
         <th class="col-sm-2">Answer</th>
+        <th class="col-sm-2">Your Answer</th>
         <th class="col-sm-2">Result</th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
       <tr>
         <td><%= card.question %></td>
         <td><%= card.answer %></td>
+        <td><%= @answers[card.question] %></td>
         <% if @results[card.question] == true %>
           <td><span class='glyphicon glyphicon-ok'></span> Correct </td>
         <% else %>

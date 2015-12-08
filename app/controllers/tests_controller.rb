@@ -9,6 +9,7 @@ class TestsController < ApplicationController
 
   def fvalidate
     @results = Hash.new
+    @answers = params
     @score = 0
     @deck.cards.each do |card|
       @results[card.question] = false
@@ -21,6 +22,7 @@ class TestsController < ApplicationController
 
   def bvalidate
     @results = Hash.new
+    @answers = params
     @score = 0
     @deck.cards.each do |card|
       @results[card.answer] = false
