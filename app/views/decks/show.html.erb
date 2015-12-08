@@ -36,6 +36,8 @@
         <td><%= card.answer %></td>
         <% if @deck.user == current_user %>
           <td><span class='glyphicon glyphicon-edit'></span> <%= link_to 'Edit', edit_card_path(card) %> | <span class='glyphicon glyphicon-trash'></span> <%= link_to 'Delete', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td><span class='glyphicon glyphicon-ban-circle'></span></td>
         <% end %>
       </tr>
     <% end %>
